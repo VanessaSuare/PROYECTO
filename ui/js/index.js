@@ -13,7 +13,7 @@ if (user.role === "BOSS") {
 }
 
 async function renderBossDashboard() {
-  const resp = await fetch("http://localhost:4000/api/records");
+  const resp = await fetch("http://localhost:3000/api/activities");
   const records = await resp.json();
 
   let rows = "";
@@ -22,18 +22,17 @@ async function renderBossDashboard() {
     <tr>
         <th scope="row">${index + 1}</th>
         <td>${activity.description}</td>
-        <td>${getPriority(activity.priority)}</td>
-        <td>${getStatus(activity.status)}</td>
-        <td>${activity.user.name}</td>
+        <td>${getType(activity.type)}</td>
+        <td>${activity.isFreeTime ? "Si" : "No"}</td>
     </tr>`;
   });
 
   $("#records-table tbody").html(rows);
 }
 
-function getPriority(priority) {
-  const priorities = { LOW: "BAJA", MEDIUM: "MEDIA", HIGH: "ALTA" };
-  return priorities[priority];
+function getType(type) {
+  const types = { START: "INICIO", FINISH: "FIN" };
+  return types[type];
 }
 
 function getStatus(status) {

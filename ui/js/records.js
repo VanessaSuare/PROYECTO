@@ -7,20 +7,24 @@ user = JSON.parse(user);
 $("#profile-name").text(user.name);
 
 async function renderRecords() {
-  const records = await fetch("http://localhost:5000/api/records").then(
-    (resp) => resp.json()
+  const traces = await fetch("http://localhost:5000/api/trace").then((resp) =>
+    resp.json()
   );
   let rows = "";
-  records.forEach((Record, index) => {
+  traces.forEach((trace, index) => {
     rows += `
     <tr>
         <th scope="row">${index + 1}</th>
-        <td>${Record.activity}</td>
-        <td>${Record.user}</td>
-        <td>${getStatus(Record.status)}</td>
-        <td>${new Date(Record.createdAt).toLocaleString("en-US", {
-          timeZone: "America/Bogota",
-        })}</td>
+        <td>${
+          new Date(trace.date)
+            .toLocaleString("en-US", {
+              timeZone: "America/Bogota",
+            })
+            .split(",")[0]
+        }</td>
+        <td>${trace.timeWork}</td>
+        <td>${trace.timeFree}</td>
+        <td>${trace.user}</td>
     </tr>`;
   });
 
