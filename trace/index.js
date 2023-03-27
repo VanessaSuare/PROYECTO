@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const routerApi = require('./routes');
 const app = express();
-const port = 4000;
+const port = 5000;
 
 app.use(
   cors({
@@ -17,5 +17,5 @@ routerApi(app);
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
-  console.log('Activities service running on port: ' + port);
+  console.log('Traces service running on port: ' + port);
 });

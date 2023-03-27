@@ -18,4 +18,11 @@ router.get('/', async (req, res) => {
   res.json(records);
 });
 
+router.get('/byUserId/:id', async (req, res) => {
+  const { id } = req.params;
+  const { date } = req.query;
+  const records = await service.byUserId(id, date);
+  res.json(records);
+});
+
 module.exports = router;

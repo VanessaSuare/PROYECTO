@@ -7,6 +7,11 @@ router.get('/', async (req, res) => {
   res.json(await service.findAll());
 });
 
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
+  res.json(await service.findById(id));
+});
+
 router.post('/', async (req, res, next) => {
   try {
     const body = req.body;

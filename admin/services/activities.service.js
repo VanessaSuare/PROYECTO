@@ -11,6 +11,10 @@ class ActivitiesService {
     return await models.Activity.findAll();
   }
 
+  async findById(id) {
+    return await models.Activity.findByPk(id);
+  }
+
   async create(activityDTO, requestUserId) {
     //Buscar info de usuario que envia la peticion
     const user = await models.User.findByPk(requestUserId);
