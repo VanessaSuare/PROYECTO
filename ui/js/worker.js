@@ -7,7 +7,7 @@ $("#profile-name").text(user.name);
 
 async function renderWorkerDashboard() {
   const resp = await fetch(
-    "http://localhost:4000/api/records/byUserId/" +
+    "http://192.168.100.2:4000/api/records/byUserId/" +
       user.id +
       "?date=" +
       new Date().toISOString()
@@ -54,7 +54,7 @@ $("#update-activity-form").submit(async (e) => {
     activityId: formData[0][1],
     userId: user.id,
   };
-  const resp = await fetch("http://localhost:4000/api/records/", {
+  const resp = await fetch("http://192.168.100.2:4000/api/records/", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
@@ -69,7 +69,7 @@ $("#update-activity-form").submit(async (e) => {
 });
 
 async function loadActivities() {
-  const resp = await fetch("http://localhost:3000/api/activities/");
+  const resp = await fetch("http://192.168.100.2:3000/api/activities/");
   const activities = await resp.json();
   let options = "";
   activities.forEach((activity) => {

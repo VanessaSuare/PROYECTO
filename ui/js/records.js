@@ -7,8 +7,8 @@ user = JSON.parse(user);
 $("#profile-name").text(user.name);
 
 async function renderRecords() {
-  const traces = await fetch("http://localhost:5000/api/trace").then((resp) =>
-    resp.json()
+  const traces = await fetch("http://192.168.100.2:5000/api/trace").then(
+    (resp) => resp.json()
   );
   let rows = "";
   traces.forEach((trace, index) => {
