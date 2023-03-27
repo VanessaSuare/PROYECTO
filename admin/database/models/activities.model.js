@@ -13,6 +13,16 @@ const ActivitySchema = {
     allowNull: false,
     type: DataTypes.TEXT,
   },
+  type: {
+    allowNull: false,
+    type: DataTypes.ENUM('START', 'FINISH'),
+    defaultValue: 'START',
+  },
+  isFreeTime: {
+    allowNull: false,
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
 };
 
 class Activity extends Model {
