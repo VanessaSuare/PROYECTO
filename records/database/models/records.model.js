@@ -17,10 +17,6 @@ const RecordSchema = {
     allowNull: false,
     type: DataTypes.INTEGER,
   },
-  status: {
-    allowNull: false,
-    type: DataTypes.ENUM('CREATED', 'IN_PROGRESS', 'IN_REVIEW', 'FINISHED'),
-  },
   createdAt: {
     allowNull: false,
     type: DataTypes.DATE,

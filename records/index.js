@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const routerApi = require('./routes');
 const app = express();
-const port = 5000;
+const port = 4000;
 
 app.use(cors());
 app.use(express.json());

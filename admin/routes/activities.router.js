@@ -18,14 +18,14 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-// router.post('/idbatch', async (req, res, next) => {
-//   try {
-//     const { ids } = req.body;
-//     const activities = await service.findManyByIds(ids);
-//     res.status(activities ? 200 : 404).json(activities);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
+router.post('/idbatch', async (req, res, next) => {
+  try {
+    const { ids } = req.body;
+    const activities = await service.findManyByIds(ids);
+    res.status(activities ? 200 : 404).json(activities);
+  } catch (error) {
+    next(error);
+  }
+});
 
 module.exports = router;
